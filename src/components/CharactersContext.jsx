@@ -24,7 +24,7 @@ export const CharactersProvider = ({ children }) => {
         const getCharacters = async () => {
             const response = await axios.get(`https://rickandmortyapi.com/api/character/?page=${myPage}`);
             setCharacters([...characters,...response.data.results]);
-            setMyPage(prevMyPage=>myPage+1)
+            setMyPage(myPage+1)
         }
         useEffect(() => {
         if(myPage < 43) {
