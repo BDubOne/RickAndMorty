@@ -7,7 +7,7 @@
     height: 100%;
     width: 100%;
 }
-body {
+.container #app-container {
     background-color: dark blue;
 }
 #Navbar{
@@ -18,6 +18,7 @@ body {
     display: flex;
     justify-content: center;
     margin: 0;
+    background-color: black;
 }
 #a-character{
     margin-top: 10vmin;
@@ -32,10 +33,24 @@ body {
 
 }
 
-.carousel-text{
-    color: black;
-    padding: 10%;
+.Carousel-text{
+    color: limegreen;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    margin-right: 25%;
+    margin-top: -20%;
+
     
+}
+.carousel-control-prev-icon {
+    color: black;
+}
+.carousel-control-next-icon {
+    color: black;
+}
+.active-carousel-item {
+    background-color: grey;
 }
 
 #a-character img{

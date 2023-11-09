@@ -13,9 +13,9 @@ function SeasonalCarousel({ episodes}) {
                 alt={episode.title}
                 />
                 <Carousel.Caption class="Carousel-text" >
-                    <h3 class="Carousel-text">{episode.title}</h3>
-                    <p class="Carousel-text">Release Date: {episode.releaseDate}</p>
-                    <p class="Carousel-text">Episode Number: {episode.episodeNumber}</p>                        
+                    <h3 >{episode.title}</h3>
+                    <p >Release Date: {episode.releaseDate}</p>
+                    <p >Episode Number: {episode.episodeNumber}</p>                        
                 </Carousel.Caption>
             </Carousel.Item>
         ))}
