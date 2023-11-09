@@ -44,6 +44,7 @@
     flex-direction: column;
     margin-right: 25%;
     margin-top: -20%;
+    z-index: 1;
 
     
 }
