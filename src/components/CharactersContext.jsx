@@ -32,33 +32,32 @@ export const CharactersProvider = ({ children }) => {
         }
     },[myPage]);
 
+    const getFilteredCharacters = (terms) => {
+        if(!terms) return characters;
+
+        const searchTerms = terms.toLowerCase().split(' ');
+        return characters.filter(character => {
+            return searchTerms.every(term => (
+                character.name.toLowerCase().includes(term) ||
+                character.origin.name.toLowerCase().includes(term) ||
+                character.species.toLowerCase().includes(term) ||
+                character.status.toLowerCase().includes(term) ||
+                character.episode.some(episode => episode.toLowerCase().includes(term)) ||
+                character.gender.toLowerCase().includes(term) ||
+                character.location.name.toLowerCase().includes(term)
+         
+            ))
+        })   
+    };
+
     useEffect(() => {
-        if (!searchTerm) {
-            setFilteredCharacters(characters);
-        } else {
-            const lowerCaseTerm = searchTerm.toLowerCase();
-            const results = characters.filter(character=> {
-                return character.name.toLowerCase().includes(lowerCaseTerm) ||
-                character.origin.name.toLowerCase().includes(lowerCaseTerm) ||
-                character.species.toLowerCase().includes(lowerCaseTerm) ||
-                character.status.toLowerCase().includes(lowerCaseTerm) ||
-                character.location.name.toLowerCase().includes(lowerCaseTerm)
-            });
-            setFilteredCharacters(results)
-        }
+        setFilteredCharacters(getFilteredCharacters(searchTerm));
     },[searchTerm, characters])
     
-    const handleSearchSubmit = (searchTerm) => {
-        const lowerCaseTerm = searchTerm.toLowerCase();
-        const results = characters.filter(character => {
-            return character.name.toLowerCase().includes(lowerCaseTerm) ||
-            character.origin.name.toLowerCase().includes(lowerCaseTerm) ||
-            character.species.toLowerCase().includes(lowerCaseTerm) ||
-            character.status.toLowerCase().includes(lowerCaseTerm) ||
-            character.location.name.toLowerCase().includes(lowerCaseTerm)
-        });
-        setSearchResults(results); 
-      };
+    const handleSearchSubmit = (terms) => {
+        setSearchResults(getFilteredCharacters(terms));
+     
+    };
 
   
 

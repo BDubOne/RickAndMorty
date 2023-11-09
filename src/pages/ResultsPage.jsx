@@ -6,7 +6,7 @@ import {useOutletContext } from 'react-router-dom'
 
 const ResultsPage = () => {
     const {setFavorites, favorites} = useOutletContext()
-    const { filteredCharacters } = useContext(CharactersContext)
+    const { filteredCharacters} = useContext(CharactersContext)
     return (
         <>
         <h2>Search results</h2>

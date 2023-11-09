@@ -13,17 +13,18 @@ import Button from 'react-bootstrap/Button'
 
 export const Header = ({favorites}) => {
   const navigate=useNavigate();
-  const { setSearchTerm } = useContext(CharactersContext);
-  const [searchTerm, setSearchTermLocal] = useState('')
+  const { setSearchTerm, handleSearchSubmit } = useContext(CharactersContext);
+  const [localSearchTerm, setLocalSearchTerm] = useState('')
 
   const handleSearch = (event) => {
     const searchTermValue = event.target.value;
-    setSearchTermLocal(searchTermValue);
+    setLocalSearchTerm(searchTermValue);
     setSearchTerm(searchTermValue);
   }
 
-  const handleSearchSubmit = (event) => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
+    handleSearchSubmit(localSearchTerm);
     navigate('/search-results/')
   }
 
@@ -38,14 +39,14 @@ export const Header = ({favorites}) => {
           <Nav.Link as={Link} to="about/">About</Nav.Link>   
           <Nav.Link as={Link} to="characters/">Characters</Nav.Link>
           <Nav.Link as={Link} to="favorites/">Favorites {favorites.length} </Nav.Link>
-          <Form className='d-flex' onSubmit={handleSearchSubmit} > 
+          <Form className='d-flex' onSubmit={handleFormSubmit} > 
             <FormControl
             type='search'
             placeholder="Search"
             className="me-2"
             aria-label="Search"
             onChange={handleSearch}
-            value={searchTerm}
+            value={localSearchTerm}
             />
             <Button type="submit">Search</Button>
           </Form>
