@@ -13,6 +13,10 @@
 #Navbar{
     position: sticky;
 }
+
+#homepage {
+    color: limegreen
+}
 .row {
     width: 100%;
     display: flex;
