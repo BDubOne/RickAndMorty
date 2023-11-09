@@ -31,7 +31,7 @@ const AboutPage = () => {
         getEpisodes();
     })
     return (
-        <div class="body">
+        <div>
         <h1>
             About
         </h1>

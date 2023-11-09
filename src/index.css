@@ -37,16 +37,20 @@
 
 }
 
-.Carousel-text{
-    color: limegreen;
+ #Carousel-text{
+    color: rgb(58, 175, 58);
     float: right;
     display: flex;
     flex-direction: column;
-    margin-right: 25%;
-    margin-top: -20%;
+    justify-content: center;
+    margin-left: 5%;
+ 
+   
     z-index: 1;
-
     
+}
+#Carousel-img {
+    z-index: 3;
 }
 .carousel-control-prev-icon {
     color: black;
